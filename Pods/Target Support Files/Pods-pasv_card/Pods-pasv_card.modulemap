@@ -1,0 +1,6 @@
+framework module Pods_pasv_card {
+  umbrella header "Pods-pasv_card-umbrella.h"
+
+  export *
+  module * { export * }
+}
