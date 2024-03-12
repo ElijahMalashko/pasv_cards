@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import MarkdownKit
 
 class SecondViewController: UIViewController {
     @IBOutlet weak var questionLable: UILabel!
@@ -20,31 +19,25 @@ class SecondViewController: UIViewController {
     var currentIndex = 0
     var currentIndexForQuestion = 1
     var pageTitle: String?
-    
+<<<<<<< HEAD
+=======
 
-
-
-
-
+>>>>>>> 94c42a11a72c659ad49eb6011b19fffbac538ef7
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         performPOSTRequest()
         self.title = pageTitle
         numberOfQuestion.text = ""
 
+<<<<<<< HEAD
         view.addSubview(questionLable)
         view.addSubview(answerTextView)
+=======
 
 
-
-
-
-
-
-
-
+        
+>>>>>>> 94c42a11a72c659ad49eb6011b19fffbac538ef7
     }
     @IBAction func test(_ sender: UIButton) {
                 currentIndex += 1
@@ -67,6 +60,8 @@ class SecondViewController: UIViewController {
 
 
     @IBAction func swipeGesture(_ sender: UISwipeGestureRecognizer) {
+        print("вфывф")
+
         switch sender.direction {
             case .left:
                 currentIndex += 1
@@ -84,25 +79,8 @@ class SecondViewController: UIViewController {
         }
         if currentIndex < questionsAndAnswers.count {
             let currentQA = questionsAndAnswers[currentIndex]
-
-            let markdownParser = MarkdownParser(font: UIFont.systemFont(ofSize: 15))
-            let parser = MarkdownParser(font: UIFont.systemFont(ofSize: 15))
-            parser.header.fontIncrease = 10
-
-            markdownParser.bold.color = UIColor.blue
-            markdownParser.italic.font = UIFont.italicSystemFont(ofSize: 450)
-            markdownParser.header.fontIncrease = 3
-
-
-
-
-
-            let formattedQuestion = parser.parse("#" + (currentQA["question"] ?? ""))
-            let formattedAnswer = markdownParser.parse("###"  + (currentQA["answer"] ?? ""))
-
-            questionLable.attributedText = formattedQuestion
-            answerTextView.attributedText = formattedAnswer
-
+            questionLable.text = currentQA["question"]
+            answerTextView.text = currentQA["answer"]
         }
     }
 
@@ -115,6 +93,7 @@ class SecondViewController: UIViewController {
         if currentIndexForQuestion < questionsAndAnswers.count {
             let currentQA = questionsAndAnswers[currentIndexForQuestion]
             nextQuestionLable.text = currentQA["question"]
+
         }
     }
 
@@ -174,7 +153,7 @@ class SecondViewController: UIViewController {
               17: "6295042639fb32941a0e8645", //+
               18: "628ff045cdc8a7e54f4ae256", //+
               19: "629fad80910b9d778b9346c0", //+
-              20: "5d4dc8794f924f00380c2f55", // +
+              20: "5d4dc8794f924f00380c2f55", // -
               21: "629fc1e8910b9d778b946960", //+
               22: "62a8bc8ded7a683474094738", //+
           ]

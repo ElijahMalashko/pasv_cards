@@ -1,22 +1,18 @@
 PODS:
-  - MarkdownKit (1.7.1)
   - SDWebImage (5.18.5):
     - SDWebImage/Core (= 5.18.5)
   - SDWebImage/Core (5.18.5)
 
 DEPENDENCIES:
-  - MarkdownKit
   - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
-    - MarkdownKit
     - SDWebImage
 
 SPEC CHECKSUMS:
-  MarkdownKit: 0b15195c63cf3e39387949c4bdeccde0055e252a
   SDWebImage: 7ac2b7ddc5e8484c79aa90fc4e30b149d6a2c88f
 
-PODFILE CHECKSUM: 8dd567ea7810e64e3520f5a65ed52808ac097d7e
+PODFILE CHECKSUM: 635b892565e6e97e9452f0c7e168d15b0146ccb3
 
 COCOAPODS: 1.10.1
