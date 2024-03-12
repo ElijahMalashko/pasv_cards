@@ -15,6 +15,7 @@
 		FA393CC12B0FD3B3003AE2DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA393CC02B0FD3B3003AE2DE /* Assets.xcassets */; };
 		FA393CC42B0FD3B3003AE2DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA393CC22B0FD3B3003AE2DE /* LaunchScreen.storyboard */; };
 		FA4B6EC12B39DFF500A18F3B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B6EC02B39DFF500A18F3B /* SecondViewController.swift */; };
+		FAA4347E2B9D213D00751459 /* MarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = FAA4347D2B9D213D00751459 /* MarkdownView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA4347E2B9D213D00751459 /* MarkdownView in Frameworks */,
 				A36D5BACD8294B5FEA87C239 /* Pods_pasv_card.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +114,9 @@
 			dependencies = (
 			);
 			name = pasv_card;
+			packageProductDependencies = (
+				FAA4347D2B9D213D00751459 /* MarkdownView */,
+			);
 			productName = pasv_card;
 			productReference = FA393CB42B0FD3B1003AE2DE /* pasv_card.app */;
 			productType = "com.apple.product-type.application";
@@ -140,6 +145,9 @@
 				Base,
 			);
 			mainGroup = FA393CAB2B0FD3B1003AE2DE;
+			packageReferences = (
+				FAA4347C2B9D213D00751459 /* XCRemoteSwiftPackageReference "MarkdownView" */,
+			);
 			productRefGroup = FA393CB52B0FD3B1003AE2DE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -432,6 +440,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FAA4347C2B9D213D00751459 /* XCRemoteSwiftPackageReference "MarkdownView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/keitaoouchi/MarkdownView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAA4347D2B9D213D00751459 /* MarkdownView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAA4347C2B9D213D00751459 /* XCRemoteSwiftPackageReference "MarkdownView" */;
+			productName = MarkdownView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA393CAC2B0FD3B1003AE2DE /* Project object */;
 }

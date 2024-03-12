@@ -35,8 +35,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var lableForTwentyOneImage: UILabel!
     @IBOutlet weak var lableForTwentyTwoImage: UILabel!
     @IBOutlet weak var lableForTwentyThirdImage: UILabel!
-    
-    
+
+
 
     @IBOutlet weak var imageViewFirst: UIImageView!
     @IBOutlet weak var imageViewSecond: UIImageView!
@@ -75,12 +75,12 @@ class ViewController: UIViewController {
         performGETRequest()
         self.firstButton.imageView?.contentMode = .scaleAspectFit
     }
-    
+
     @IBAction func firstButton(_ sender: Any) {
         pageTitle = lableForFirstImage.text
         navigateToSecondViewController(withCase: 0)
     }
-    
+
     @IBAction func secondButton(_ sender: Any) {
         pageTitle = lableForSecondImage.text
         navigateToSecondViewController(withCase: 1)
@@ -88,13 +88,13 @@ class ViewController: UIViewController {
     }
     @IBAction func thirdButton(_ sender: Any) {
         pageTitle = lableForThirdImage.text
-    navigateToSecondViewController(withCase: 2)
+        navigateToSecondViewController(withCase: 2)
     }
 
     @IBAction func fourButton(_ sender: Any) {
         pageTitle = lableForFourthImage.text
         navigateToSecondViewController(withCase: 3)
-        
+
 
     }
     @IBAction func fiveButton(_ sender: Any) {
@@ -105,12 +105,12 @@ class ViewController: UIViewController {
         pageTitle = lableForSixImage.text
         navigateToSecondViewController(withCase: 5)
     }
-    
+
     @IBAction func sevenButton(_ sender: Any) {
         pageTitle = lableForSevenImage.text
         navigateToSecondViewController(withCase: 6)
     }
-    
+
     @IBAction func eightButton(_ sender: Any) {
         pageTitle = lableForEightImage.text
         navigateToSecondViewController(withCase: 7)
@@ -155,7 +155,7 @@ class ViewController: UIViewController {
         pageTitle = lableForEighteenImage.text
         navigateToSecondViewController(withCase: 17)
     }
-    
+
     @IBAction func nineteenButton(_ sender: Any) {
         pageTitle = lableForNineteenImage.text
         navigateToSecondViewController(withCase: 18)
@@ -176,26 +176,17 @@ class ViewController: UIViewController {
         pageTitle = lableForTwentyThirdImage.text
         navigateToSecondViewController(withCase: 22)
     }
-    
+
 
     func navigateToSecondViewController(withCase caseIndex: Int) {
-           let storyboard = UIStoryboard(name: "Main", bundle: nil)
-           guard let secondVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController else {
-               return
-           }
-           secondVC.caseIndex = caseIndex
-           secondVC.pageTitle = pageTitle
-           navigationController?.pushViewController(secondVC, animated: true)
-       }
-
-
-
-
-
-
-
-
-
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let secondVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController else {
+            return
+        }
+        secondVC.caseIndex = caseIndex
+        secondVC.pageTitle = pageTitle
+        navigationController?.pushViewController(secondVC, animated: true)
+    }
 
     func performGETRequest() {
 
@@ -241,21 +232,6 @@ class ViewController: UIViewController {
                                     case 0:
                                         self.imageViewFirst.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "placeholderImage"))
                                         self.lableForFirstImage.text = name
-                                        
-
-
-                                             // self.firstButton.sd_setImage(with: imageURL, for: .normal, placeholderImage: UIImage(named: "placeholderImage"))
-                                      //  self.firstButton.imageView?.contentMode = .scaleAspectFit
-
-
-
-
-
-
-
-
-
-
 
                                     case 1:
                                         self.imageViewSecond.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "placeholderImage"))
@@ -264,7 +240,7 @@ class ViewController: UIViewController {
                                     case 2:
                                         self.imageViewThird.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "placeholderImage"))
                                         self.lableForThirdImage.text = name
-                                        
+
 
                                     case 3:
                                         self.imageViewFourth.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "placeholderImage"))
@@ -340,5 +316,4 @@ class ViewController: UIViewController {
         }
         getTask.resume()
     }
-    }
-
+}

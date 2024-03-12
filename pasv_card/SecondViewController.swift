@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import MarkdownKit
 
 class SecondViewController: UIViewController {
     @IBOutlet weak var questionLable: UILabel!
@@ -19,32 +20,23 @@ class SecondViewController: UIViewController {
     var currentIndex = 0
     var currentIndexForQuestion = 1
     var pageTitle: String?
-<<<<<<< HEAD
-=======
-
->>>>>>> 94c42a11a72c659ad49eb6011b19fffbac538ef7
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         performPOSTRequest()
         self.title = pageTitle
         numberOfQuestion.text = ""
 
-<<<<<<< HEAD
         view.addSubview(questionLable)
         view.addSubview(answerTextView)
-=======
-
-
-        
->>>>>>> 94c42a11a72c659ad49eb6011b19fffbac538ef7
     }
     @IBAction func test(_ sender: UIButton) {
-                currentIndex += 1
-                currentIndexForQuestion += 1
-                updateLabels()
-                numberOfQuestion.text = "\(currentIndex + 1) out of \(questionsAndAnswers.count)"
-                updateNextQuestion()
+        currentIndex += 1
+        currentIndexForQuestion += 1
+        updateLabels()
+        numberOfQuestion.text = "\(currentIndex + 1) out of \(questionsAndAnswers.count)"
+        updateNextQuestion()
 
 
     }
@@ -60,16 +52,14 @@ class SecondViewController: UIViewController {
 
 
     @IBAction func swipeGesture(_ sender: UISwipeGestureRecognizer) {
-        print("вфывф")
-
         switch sender.direction {
-            case .left:
-                currentIndex += 1
-            case .right:
-                currentIndex -= 1
-            default:
-                break
-            }
+        case .left:
+            currentIndex += 1
+        case .right:
+            currentIndex -= 1
+        default:
+            break
+        }
     }
     func updateLabels() {
         if currentIndex < 0 {
@@ -79,8 +69,25 @@ class SecondViewController: UIViewController {
         }
         if currentIndex < questionsAndAnswers.count {
             let currentQA = questionsAndAnswers[currentIndex]
-            questionLable.text = currentQA["question"]
-            answerTextView.text = currentQA["answer"]
+
+            let markdownParser = MarkdownParser(font: UIFont.systemFont(ofSize: 15))
+            let parser = MarkdownParser(font: UIFont.systemFont(ofSize: 15))
+            parser.header.fontIncrease = 10
+
+            markdownParser.bold.color = UIColor.blue
+            markdownParser.italic.font = UIFont.italicSystemFont(ofSize: 450)
+            markdownParser.header.fontIncrease = 3
+
+
+
+
+
+            let formattedQuestion = parser.parse("#" + (currentQA["question"] ?? ""))
+            let formattedAnswer = markdownParser.parse("###"  + (currentQA["answer"] ?? ""))
+
+            questionLable.attributedText = formattedQuestion
+            answerTextView.attributedText = formattedAnswer
+
         }
     }
 
@@ -93,33 +100,8 @@ class SecondViewController: UIViewController {
         if currentIndexForQuestion < questionsAndAnswers.count {
             let currentQA = questionsAndAnswers[currentIndexForQuestion]
             nextQuestionLable.text = currentQA["question"]
-
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     func performPOSTRequest() {
         guard let postURL = URL(string: "https://server-prod.pasv.us/flash/card/search") else {
@@ -133,30 +115,30 @@ class SecondViewController: UIViewController {
         postRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         let flashGroupIds = [
-              0: "5d4b1df62b69530038877608", // +
-              1: "5d4b200b2b69530038877637", // +
-              2: "628d9899424f42122992a810", // +
-              3: "629a3b37fcb806dd5fa4358a", // +
-              4: "5d4a635a2b69530038877491", // +
-              5: "628fef95cdc8a7e54f4adc1a", //+
-              6: "62a7667b2242d48a2ac13649", // +
-              7: "5d4b1fc32b6953003887762f", //+
-              8: "5d4b1fb92b6953003887762a", //+
-              9: "629fff94910b9d778b97a1e5", //+
-              10: "629a27edfcb806dd5fa2f66f", //+
-              11: "5d4dc95c4f924f00380c2f87", // +
-              12: "5d4b54422b69530038877807", //+
-              13: "628fefa2cdc8a7e54f4adc36", // +
-              14: "62a8a11ced7a683474067abc", // +
-              15: "5d4b21202b69530038877664", //+
-              16: "5d4dc8a14f924f00380c2f59", //+
-              17: "6295042639fb32941a0e8645", //+
-              18: "628ff045cdc8a7e54f4ae256", //+
-              19: "629fad80910b9d778b9346c0", //+
-              20: "5d4dc8794f924f00380c2f55", // -
-              21: "629fc1e8910b9d778b946960", //+
-              22: "62a8bc8ded7a683474094738", //+
-          ]
+            0: "5d4b1df62b69530038877608", // +
+            1: "5d4b200b2b69530038877637", // +
+            2: "628d9899424f42122992a810", // +
+            3: "629a3b37fcb806dd5fa4358a", // +
+            4: "5d4a635a2b69530038877491", // +
+            5: "628fef95cdc8a7e54f4adc1a", //+
+            6: "62a7667b2242d48a2ac13649", // +
+            7: "5d4b1fc32b6953003887762f", //+
+            8: "5d4b1fb92b6953003887762a", //+
+            9: "629fff94910b9d778b97a1e5", //+
+            10: "629a27edfcb806dd5fa2f66f", //+
+            11: "5d4dc95c4f924f00380c2f87", // +
+            12: "5d4b54422b69530038877807", //+
+            13: "628fefa2cdc8a7e54f4adc36", // +
+            14: "62a8a11ced7a683474067abc", // +
+            15: "5d4b21202b69530038877664", //+
+            16: "5d4dc8a14f924f00380c2f59", //+
+            17: "6295042639fb32941a0e8645", //+
+            18: "628ff045cdc8a7e54f4ae256", //+
+            19: "629fad80910b9d778b9346c0", //+
+            20: "5d4dc8794f924f00380c2f55", // +
+            21: "629fc1e8910b9d778b946960", //+
+            22: "62a8bc8ded7a683474094738", //+
+        ]
         let flashGroupId = flashGroupIds[caseIndex] ?? "defaultFlashGroupId"
 
         let body: [String: Any] = [
@@ -191,7 +173,7 @@ class SecondViewController: UIViewController {
                                 return nil
                             }
                             //print(question)
-                            
+
                             return ["question": question, "answer": answer]
 
                         }
@@ -214,8 +196,4 @@ class SecondViewController: UIViewController {
             print("Error creating JSON data: \(error.localizedDescription)")
         }
     }
-
 }
-
-
-
