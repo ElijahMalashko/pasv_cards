@@ -71,8 +71,8 @@ class SecondViewController: UIViewController {
             let currentQA = questionsAndAnswers[currentIndex]
 
             let markdownParser = MarkdownParser(font: UIFont.systemFont(ofSize: 15))
-            let parser = MarkdownParser(font: UIFont.systemFont(ofSize: 15))
-            parser.header.fontIncrease = 10
+            let parser = MarkdownParser(font: UIFont.systemFont(ofSize: 13))
+            parser.header.fontIncrease = 5
 
             markdownParser.bold.color = UIColor.blue
             markdownParser.italic.font = UIFont.italicSystemFont(ofSize: 450)
