@@ -831,7 +831,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwq-LV-uUt">
                                 <rect key="frame" x="16" y="667" width="114" height="82"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="114" id="saY-PQ-mbb"/>
+                                    <constraint firstAttribute="width" constant="114" id="RhR-ec-zIY"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrowshape.left.fill" catalog="system"/>
@@ -842,7 +842,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l73-cn-2tx">
                                 <rect key="frame" x="274" y="645" width="110" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="lcW-tg-uCH"/>
+                                    <constraint firstAttribute="height" constant="21" id="Zoq-Gu-I4d"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -858,7 +858,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sah-Pu-ZNj">
                                 <rect key="frame" x="268" y="665" width="109" height="84"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="109" id="sfE-Ot-1Zz"/>
+                                    <constraint firstAttribute="width" constant="109" id="z5f-El-oc5"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrowshape.right.fill" catalog="system"/>
@@ -867,9 +867,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vn-H4-mKy">
-                                <rect key="frame" x="175" y="735" width="202" height="43"/>
+                                <rect key="frame" x="16" y="735" width="361" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="KbO-xK-GLV"/>
+                                    <constraint firstAttribute="height" constant="48" id="z76-Dm-T1m"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                 <nil key="textColor"/>
@@ -879,7 +879,7 @@
                                 <rect key="frame" x="12" y="87" width="377" height="145"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="145" id="7Hy-IF-MU7"/>
+                                    <constraint firstAttribute="height" constant="145" id="sYl-19-Uf5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -892,25 +892,25 @@
                         <viewLayoutGuide key="safeArea" id="Y6I-T5-Ldc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lwq-LV-uUt" firstAttribute="bottom" secondItem="Sah-Pu-ZNj" secondAttribute="bottom" id="0uP-98-Rdq"/>
-                            <constraint firstItem="l73-cn-2tx" firstAttribute="top" secondItem="pbx-wK-7yq" secondAttribute="bottom" constant="28" id="3LF-ft-FOv"/>
-                            <constraint firstItem="9vn-H4-mKy" firstAttribute="leading" secondItem="lwq-LV-uUt" secondAttribute="trailing" constant="45" id="AQE-nd-0Gf"/>
-                            <constraint firstItem="lwq-LV-uUt" firstAttribute="top" secondItem="pbx-wK-7yq" secondAttribute="bottom" constant="50" id="GrQ-PK-yPq"/>
-                            <constraint firstItem="9vn-H4-mKy" firstAttribute="top" secondItem="l73-cn-2tx" secondAttribute="bottom" constant="69" id="MHK-XG-WFv"/>
-                            <constraint firstItem="l73-cn-2tx" firstAttribute="leading" secondItem="Y6I-T5-Ldc" secondAttribute="leading" constant="274" id="QS3-jH-4YC"/>
-                            <constraint firstItem="Sah-Pu-ZNj" firstAttribute="trailing" secondItem="MT8-Gy-AvC" secondAttribute="trailingMargin" id="RL4-o2-Dmu"/>
-                            <constraint firstItem="ZP6-hA-o3b" firstAttribute="leading" secondItem="Y6I-T5-Ldc" secondAttribute="leading" constant="12" id="RL9-zj-8N9"/>
-                            <constraint firstItem="pbx-wK-7yq" firstAttribute="top" secondItem="ZP6-hA-o3b" secondAttribute="bottom" constant="8" id="Ym5-Fw-Cwr"/>
-                            <constraint firstItem="pbx-wK-7yq" firstAttribute="trailing" secondItem="l73-cn-2tx" secondAttribute="trailing" id="aGq-KD-bsB"/>
-                            <constraint firstItem="Y6I-T5-Ldc" firstAttribute="bottom" secondItem="9vn-H4-mKy" secondAttribute="bottom" constant="40" id="c3Q-A4-XW6"/>
-                            <constraint firstItem="Sah-Pu-ZNj" firstAttribute="trailing" secondItem="9vn-H4-mKy" secondAttribute="trailing" id="coy-mz-Hbs"/>
-                            <constraint firstItem="Sah-Pu-ZNj" firstAttribute="top" secondItem="pbx-wK-7yq" secondAttribute="bottom" constant="48" id="d7F-RD-RWY"/>
-                            <constraint firstItem="Y6I-T5-Ldc" firstAttribute="bottom" secondItem="lwq-LV-uUt" secondAttribute="bottom" constant="69" id="dkP-dd-Ilj"/>
-                            <constraint firstItem="ZP6-hA-o3b" firstAttribute="top" secondItem="Y6I-T5-Ldc" secondAttribute="top" constant="28" id="equ-I2-VxI"/>
-                            <constraint firstItem="pbx-wK-7yq" firstAttribute="leading" secondItem="MT8-Gy-AvC" secondAttribute="leadingMargin" id="kQ1-G4-iXh"/>
-                            <constraint firstItem="Y6I-T5-Ldc" firstAttribute="trailing" secondItem="ZP6-hA-o3b" secondAttribute="trailing" constant="4" id="o0J-FE-KMz"/>
-                            <constraint firstItem="ZP6-hA-o3b" firstAttribute="centerX" secondItem="pbx-wK-7yq" secondAttribute="centerX" id="qk3-dP-qhd"/>
-                            <constraint firstItem="pbx-wK-7yq" firstAttribute="leading" secondItem="lwq-LV-uUt" secondAttribute="leading" id="qv3-03-JiA"/>
+                            <constraint firstItem="lwq-LV-uUt" firstAttribute="bottom" secondItem="Sah-Pu-ZNj" secondAttribute="bottom" id="5xj-AA-jaF"/>
+                            <constraint firstItem="9vn-H4-mKy" firstAttribute="top" secondItem="l73-cn-2tx" secondAttribute="bottom" constant="69" id="7VO-N6-hBZ"/>
+                            <constraint firstItem="Sah-Pu-ZNj" firstAttribute="trailing" secondItem="MT8-Gy-AvC" secondAttribute="trailingMargin" id="BkV-Vp-Wiu"/>
+                            <constraint firstItem="pbx-wK-7yq" firstAttribute="leading" secondItem="MT8-Gy-AvC" secondAttribute="leadingMargin" id="CsK-hN-D9r"/>
+                            <constraint firstItem="lwq-LV-uUt" firstAttribute="top" secondItem="pbx-wK-7yq" secondAttribute="bottom" constant="50" id="D0Z-kw-ZqI"/>
+                            <constraint firstItem="l73-cn-2tx" firstAttribute="top" secondItem="pbx-wK-7yq" secondAttribute="bottom" constant="28" id="EYB-p0-9Un"/>
+                            <constraint firstItem="Y6I-T5-Ldc" firstAttribute="bottom" secondItem="9vn-H4-mKy" secondAttribute="bottom" constant="35" id="Fi8-S8-Itz"/>
+                            <constraint firstItem="ZP6-hA-o3b" firstAttribute="top" secondItem="Y6I-T5-Ldc" secondAttribute="top" constant="28" id="JGl-Ye-IbG"/>
+                            <constraint firstItem="pbx-wK-7yq" firstAttribute="leading" secondItem="lwq-LV-uUt" secondAttribute="leading" id="K8g-Lh-RrN"/>
+                            <constraint firstItem="ZP6-hA-o3b" firstAttribute="leading" secondItem="Y6I-T5-Ldc" secondAttribute="leading" constant="12" id="Mw2-eP-9Bc"/>
+                            <constraint firstItem="l73-cn-2tx" firstAttribute="leading" secondItem="Y6I-T5-Ldc" secondAttribute="leading" constant="274" id="MyZ-7Z-sRm"/>
+                            <constraint firstItem="pbx-wK-7yq" firstAttribute="top" secondItem="ZP6-hA-o3b" secondAttribute="bottom" constant="8" id="PPA-KI-BZJ"/>
+                            <constraint firstItem="lwq-LV-uUt" firstAttribute="leading" secondItem="9vn-H4-mKy" secondAttribute="leading" id="TbF-ks-H1I"/>
+                            <constraint firstItem="Y6I-T5-Ldc" firstAttribute="trailing" secondItem="ZP6-hA-o3b" secondAttribute="trailing" constant="4" id="Zd3-5Q-43V"/>
+                            <constraint firstItem="pbx-wK-7yq" firstAttribute="trailing" secondItem="l73-cn-2tx" secondAttribute="trailing" id="e7Q-4R-bDK"/>
+                            <constraint firstItem="Sah-Pu-ZNj" firstAttribute="top" secondItem="pbx-wK-7yq" secondAttribute="bottom" constant="48" id="jVN-c0-kgw"/>
+                            <constraint firstItem="Y6I-T5-Ldc" firstAttribute="bottom" secondItem="lwq-LV-uUt" secondAttribute="bottom" constant="69" id="jZr-e8-dQt"/>
+                            <constraint firstItem="Sah-Pu-ZNj" firstAttribute="trailing" secondItem="9vn-H4-mKy" secondAttribute="trailing" id="oTh-mN-gVQ"/>
+                            <constraint firstItem="ZP6-hA-o3b" firstAttribute="centerX" secondItem="pbx-wK-7yq" secondAttribute="centerX" id="t7a-Sb-CCw"/>
                         </constraints>
                     </view>
                     <connections>
