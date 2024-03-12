@@ -7,4 +7,5 @@ target 'pasv_card' do
 
   # Pods for pasv_card
 pod 'SDWebImage', '~> 5.0'
+pod 'MarkdownKit'
 end
