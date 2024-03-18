@@ -166,7 +166,7 @@ class ViewController: UIViewController {
     }
     @IBAction func twentyoneButton(_ sender: Any) {
         pageTitle = lableForTwentyOneImage.text
-        navigateToSecondViewController(withCase: 20)
+       // navigateToSecondViewController(withCase: 20)
     }
     @IBAction func twentytwoButton(_ sender: Any) {
         pageTitle = lableForTwentyTwoImage.text
