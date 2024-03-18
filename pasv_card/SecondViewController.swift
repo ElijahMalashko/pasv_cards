@@ -18,24 +18,26 @@ class SecondViewController: UIViewController {
     var caseIndex: Int = 0
     var questionsAndAnswers: [[String: String]] = []
     var currentIndex = 0
-    var currentIndexForQuestion = 1
+    var currentIndexForQuestion = 0
+    var nextQuestionIndex = 1
+
     var pageTitle: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         performPOSTRequest()
-        self.title = pageTitle
-        numberOfQuestion.text = ""
 
-        view.addSubview(questionLable)
-        view.addSubview(answerTextView)
+        self.title = pageTitle
+        numberOfQuestion.text = "1 out of \(questionsAndAnswers.count)"
+
     }
-    @IBAction func test(_ sender: UIButton) {
+    @IBAction func nextButton(_ sender: UIButton) {
         currentIndex += 1
         currentIndexForQuestion += 1
         updateLabels()
-        numberOfQuestion.text = "\(currentIndex + 1) out of \(questionsAndAnswers.count)"
+        updateNumberOfQuestion()
+      //  numberOfQuestion.text = "\(currentIndex + 1) out of \(questionsAndAnswers.count)"
         updateNextQuestion()
 
 
@@ -45,8 +47,12 @@ class SecondViewController: UIViewController {
         currentIndex -= 1
         currentIndexForQuestion -= 1
         updateLabels()
-        numberOfQuestion.text = "\(currentIndex + 1) out of \(questionsAndAnswers.count)"
+        //numberOfQuestion.text = "\(currentIndex + 1) out of \(questionsAndAnswers.count)"
+        updateNumberOfQuestion()
         updateNextQuestion()
+    }
+    func updateNumberOfQuestion(){
+        numberOfQuestion.text = "\(currentIndex + 1) out of \(questionsAndAnswers.count)"
     }
 
 
@@ -70,20 +76,21 @@ class SecondViewController: UIViewController {
         if currentIndex < questionsAndAnswers.count {
             let currentQA = questionsAndAnswers[currentIndex]
 
-            let markdownParser = MarkdownParser(font: UIFont.systemFont(ofSize: 15))
+            let markdownParser = MarkdownParser(font: UIFont.systemFont(ofSize: 13))
+
             let parser = MarkdownParser(font: UIFont.systemFont(ofSize: 13))
             parser.header.fontIncrease = 5
 
             markdownParser.bold.color = UIColor.blue
-            markdownParser.italic.font = UIFont.italicSystemFont(ofSize: 450)
-            markdownParser.header.fontIncrease = 3
+          //  markdownParser.italic.font = UIFont.italicSystemFont(ofSize: 15)
+            markdownParser.header.fontIncrease = 4
 
 
 
 
 
             let formattedQuestion = parser.parse("#" + (currentQA["question"] ?? ""))
-            let formattedAnswer = markdownParser.parse("###"  + (currentQA["answer"] ?? ""))
+            let formattedAnswer = markdownParser.parse("##"  + (currentQA["answer"] ?? ""))
 
             questionLable.attributedText = formattedQuestion
             answerTextView.attributedText = formattedAnswer
@@ -92,15 +99,18 @@ class SecondViewController: UIViewController {
     }
 
     func updateNextQuestion() {
-        if currentIndexForQuestion < 1 {
-            currentIndexForQuestion = 1
-        } else if currentIndexForQuestion >= questionsAndAnswers.count {
-            currentIndexForQuestion = questionsAndAnswers.count - 1
-        }
-        if currentIndexForQuestion < questionsAndAnswers.count {
-            let currentQA = questionsAndAnswers[currentIndexForQuestion]
-            nextQuestionLable.text = currentQA["question"]
-        }
+            if currentIndexForQuestion < 0 {
+                currentIndexForQuestion = 0
+            } else if currentIndexForQuestion >= questionsAndAnswers.count {
+                currentIndexForQuestion = questionsAndAnswers.count - 1
+            }
+            nextQuestionIndex = currentIndexForQuestion + 1
+            if nextQuestionIndex < questionsAndAnswers.count {
+                let nextQA = questionsAndAnswers[nextQuestionIndex]
+                nextQuestionLable.text = nextQA["question"]
+            } else {
+                nextQuestionLable.text = "No more questions"
+            }
     }
 
     func performPOSTRequest() {
@@ -144,7 +154,6 @@ class SecondViewController: UIViewController {
         let body: [String: Any] = [
             "flashGroupId": flashGroupId,
             "status": "approved"
-            // Add other parameters as required
         ]
 
         do {
@@ -162,7 +171,6 @@ class SecondViewController: UIViewController {
                     return
                 }
 
-                // Process data here
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                     // This is inside your data task completion handler
@@ -172,17 +180,12 @@ class SecondViewController: UIViewController {
                                   let answer = qa["answer"] as? String else {
                                 return nil
                             }
-                            //print(question)
-
                             return ["question": question, "answer": answer]
-
                         }
-
-
-                        // Optionally, update UI after fetching data
                         DispatchQueue.main.async {
                             self.updateLabels()
                             self.updateNextQuestion()
+                            self.updateNumberOfQuestion()
                         }
                     }
 
